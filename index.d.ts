@@ -83,7 +83,7 @@ export type Utils = {
   getLanguageDigits(digit: string | number): string;
 };
 
-export function utils(locale: string): Utils;
+export function utils(locale?: string): Utils;
 
 export type CalendarDigit = string | number;
 

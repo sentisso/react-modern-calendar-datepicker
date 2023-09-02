@@ -13,14 +13,14 @@ const DatePicker = ({
   inputClassName,
   inputName,
   renderInput,
-  wrapperClassName,
+  wrapperClassName = '',
   calendarClassName,
   calendarTodayClassName,
   calendarSelectedDayClassName,
   calendarRangeStartClassName,
   calendarRangeBetweenClassName,
   calendarRangeEndClassName,
-  calendarPopperPosition,
+  calendarPopperPosition = 'auto',
   disabledDays,
   disabledWeekDays,
   enabledDays,
@@ -32,7 +32,7 @@ const DatePicker = ({
   maximumDate,
   selectorStartingYear,
   selectorEndingYear,
-  locale,
+  locale = 'en',
   shouldHighlightWeekends,
   renderFooter,
   customDaysClassName,
@@ -196,12 +196,6 @@ const DatePicker = ({
       )}
     </div>
   );
-};
-
-DatePicker.defaultProps = {
-  wrapperClassName: '',
-  locale: 'en',
-  calendarPopperPosition: 'auto',
 };
 
 export default DatePicker;

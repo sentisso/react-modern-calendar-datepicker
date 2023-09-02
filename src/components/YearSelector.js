@@ -8,8 +8,8 @@ const YearSelector = ({
   isOpen,
   activeDate,
   onYearSelect,
-  selectorStartingYear,
-  selectorEndingYear,
+  selectorStartingYear = 0,
+  selectorEndingYear = 0,
   maximumDate,
   minimumDate,
   locale,
@@ -89,11 +89,6 @@ const YearSelector = ({
       </div>
     </div>
   );
-};
-
-YearSelector.defaultProps = {
-  selectorStartingYear: 0,
-  selectorEndingYear: 0,
 };
 
 export default YearSelector;

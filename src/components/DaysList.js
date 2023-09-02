@@ -16,20 +16,20 @@ const DaysList = ({
   value,
   monthChangeDirection,
   onSlideChange,
-  disabledDays,
+  disabledDays = [],
   disabledWeekDays,
-  enabledDays,
-  onDisabledDayError,
+  enabledDays = [],
+  onDisabledDayError = () => {},
   minimumDate,
   maximumDate,
-  onChange,
+  onChange = () => {},
   locale,
-  calendarTodayClassName,
-  calendarSelectedDayClassName,
-  calendarRangeStartClassName,
-  calendarRangeEndClassName,
-  calendarRangeBetweenClassName,
-  shouldHighlightWeekends,
+  calendarTodayClassName = '',
+  calendarSelectedDayClassName = '',
+  calendarRangeStartClassName = '',
+  calendarRangeEndClassName = '',
+  calendarRangeBetweenClassName = '',
+  shouldHighlightWeekends = false,
   isQuickSelectorOpen,
   customDaysClassName,
 }) => {
@@ -179,14 +179,15 @@ const DaysList = ({
   const renderEachWeekDays = ({ id, value: day, month, year, isStandard }, index) => {
     const dayItem = { day, month, year };
     const isInDisabledDaysRange = disabledDays.some(disabledDay => isSameDay(dayItem, disabledDay));
-    const isInDisabledWeekDays = disabledWeekDays && disabledWeekDays.some(
-        (disabledWeekDay) => disabledWeekDay === index
-    );
+    const isInDisabledWeekDays =
+      disabledWeekDays && disabledWeekDays.some(disabledWeekDay => disabledWeekDay === index);
     const isInForcelyEnabledDays = enabledDays.some(enabledDay => isSameDay(dayItem, enabledDay));
     const isBeforeMinimumDate = isBeforeDate(dayItem, minimumDate);
     const isAfterMaximumDate = isBeforeDate(maximumDate, dayItem);
     const isNotInValidRange = isStandard && (isBeforeMinimumDate || isAfterMaximumDate);
-    const isDisabled = (isInDisabledDaysRange || isNotInValidRange || isInDisabledWeekDays) && !isInForcelyEnabledDays;
+    const isDisabled =
+      (isInDisabledDaysRange || isNotInValidRange || isInDisabledWeekDays) &&
+      !isInForcelyEnabledDays;
     const isWeekend = weekDaysList.some(
       (weekDayItem, weekDayItemIndex) => weekDayItem.isWeekend && weekDayItemIndex === index,
     );
@@ -280,19 +281,6 @@ const DaysList = ({
       </div>
     </div>
   );
-};
-
-DaysList.defaultProps = {
-  onChange: () => {},
-  onDisabledDayError: () => {},
-  disabledDays: [],
-  enabledDays: [],
-  calendarTodayClassName: '',
-  calendarSelectedDayClassName: '',
-  calendarRangeStartClassName: '',
-  calendarRangeBetweenClassName: '',
-  calendarRangeEndClassName: '',
-  shouldHighlightWeekends: false,
 };
 
 export default DaysList;

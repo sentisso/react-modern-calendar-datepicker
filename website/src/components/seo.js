@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import logoFavIcon from '../images/icon.png';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description = '', lang = `en`, meta = [], keywords = [], title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -104,13 +104,6 @@ function SEO({ description, lang, meta, keywords, title }) {
     </Helmet>
   );
 }
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
-  description: ``,
-};
 
 SEO.propTypes = {
   description: PropTypes.string,
