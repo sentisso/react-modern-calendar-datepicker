@@ -1,5 +1,5 @@
 {
-  "name": "@lucassoares/react-modern-calendar",
+  "name": "react-x-calendar",
   "version": "3.1.10",
   "description": "A modern, beautiful, customizable date picker for React",
   "main": "lib/index.js",
